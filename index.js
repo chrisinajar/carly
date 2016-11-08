@@ -2,9 +2,11 @@ module.exports = CarlyRaeJepsen;
 
 function CarlyRaeJepsen (cb) {
   var stopped = false;
-  wrapped.cancel = cancel;
 
-  return wrapped;
+  return {
+    callback: wrapped,
+    cancel: cancel
+  };
 
   function cancel () {
     stopped = true;
